@@ -1,0 +1,15 @@
+<h1>Détails du cursus {{ cursus.name }}</h1>
+
+<p>Nom du cursus : {{ cursus.name }}</p>
+<p>Année depuis le bac : {{ cursus.year_from_bac }}</p>
+<p>Année scolaire : {{ cursus.scholar_year }}</p>
+
+<h2>Liste des étudiants :</h2>
+
+<ul>
+  {% for student in students %}
+    <li><a href="{% url 'detail_student' student_id=student.id %}">{{ student.first_name }} {{ student.last_name }}</a></li>
+  {% empty %}
+    <li>Aucun étudiant dans ce cursus.</li>
+  {% endfor %}
+</ul>
