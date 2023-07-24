@@ -82,7 +82,7 @@ class Passation(models.Model):
         null=True
     )
     def __str__(self):
-        return self.libelle_acc
+        return self.date_pass
 
 
 class Accessoire(models.Model):
