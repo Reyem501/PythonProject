@@ -10,7 +10,7 @@ class Emprunt(models.Model):
         null=False
     )
     def __str__(self):
-        return self.nom
+        return self.budget
 
 
 class Enseignant(models.Model):
@@ -55,6 +55,35 @@ class Materiel(models.Model):
     def __str__(self):
         return self.libelle_materiel
 
+class Passation(models.Model):
+    date_pass = models.DateField(
+        verbose_name='date de passation',
+        blank=False,
+        null=False
+    )
+    lieu_pass = models.CharField(
+        max_length=50,
+        blank=False,
+        null=False
+    )
+    occasion_pass = models.CharField(
+        max_length=100,
+        blank=False,
+        null=False
+    )
+    objectif_pos2 = models.CharField(
+        max_length=100,
+        blank=False,
+        null=False
+    )
+    materiel = models.ForeignKey(
+        Materiel,
+        on_delete=models.CASCADE,  # necessaire selon la version de Django
+        null=True
+    )
+    def __str__(self):
+        return self.libelle_acc
+
 
 class Accessoire(models.Model):
     libelle_acc = models.CharField(
@@ -62,7 +91,7 @@ class Accessoire(models.Model):
         blank=False,
         null=False
     )
-    etat = models.CharField(
+    etat_acc = models.CharField(
         max_length=50,
         blank=False,
         null=False
