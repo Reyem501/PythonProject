@@ -9,6 +9,7 @@ class Emprunt(models.Model):
         blank=False,
         null=False
     )
+
     def __str__(self):
         return self.budget
 
@@ -27,6 +28,7 @@ class Enseignant(models.Model):
         default="???",
         max_length=50,  # taille maximale du champ
     )
+
     def __str__(self):
         return self.nom
 
@@ -52,8 +54,10 @@ class Materiel(models.Model):
         on_delete=models.CASCADE,  # necessaire selon la version de Django
         null=True
     )
+
     def __str__(self):
         return self.libelle_materiel
+
 
 class Passation(models.Model):
     date_pass = models.DateField(
@@ -81,6 +85,7 @@ class Passation(models.Model):
         on_delete=models.CASCADE,  # necessaire selon la version de Django
         null=True
     )
+
     def __str__(self):
         return self.date_pass
 
@@ -101,5 +106,6 @@ class Accessoire(models.Model):
         on_delete=models.CASCADE,  # necessaire selon la version de Django
         null=True
     )
+
     def __str__(self):
         return self.libelle_acc

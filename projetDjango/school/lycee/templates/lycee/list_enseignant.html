@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Liste des enseignants</h2>
+  <ul>
+    {% for enseignant in enseignants %}
+      <li><a href="{% url 'detail_enseignant' enseignant.pk %}">{{ enseignant.nom }} {{ enseignant.prenom }}</a></li>
+    {% empty %}
+      <li>Aucun enseignant enregistré.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

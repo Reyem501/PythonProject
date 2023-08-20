@@ -1,0 +1,28 @@
+{% extends 'master.html' %}
+{% load static %}
+
+{% if liste %}
+    {% block title %}
+        Detail accessoire
+    {% endblock %}
+
+    {% block content %}
+        <div class="container">
+            <div class='row'>
+                <div class='col-sm-12'>
+                    {% if liste %}
+                        <ul class="list-group">
+                            <li class="list-group-item"><strong>Libelle:</strong> {{ liste.libelle_acc }}</li>
+                            <li class="list-group-item"><strong>Etat:</strong> {{ liste.etat_acc }}</li>
+                            <li class="list-group-item"><strong>Materiel associé:</strong> {{ liste.materiel }}</li>
+                        </ul>
+                    {% else %}
+                        <p>No accessoire to show.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+{% else %}
+    <p>No accessoire to show.</p>
+{% endif %}

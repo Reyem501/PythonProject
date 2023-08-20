@@ -1,0 +1,26 @@
+{% extends 'master.html' %}
+{% load static %}
+
+{% if liste %}
+    {% block title %}
+        Detail emprunt
+    {% endblock %}
+
+    {% block content %}
+        <div class="container">
+            <div class='row'>
+                <div class='col-sm-12'>
+                    {% if liste %}
+                        <ul class="list-group">
+                            <li class="list-group-item"><strong>Budget:</strong> {{ liste.budget }}</li>
+                        </ul>
+                    {% else %}
+                        <p>No emprunt to show.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+{% else %}
+    <p>No emprunt to show.</p>
+{% endif %}

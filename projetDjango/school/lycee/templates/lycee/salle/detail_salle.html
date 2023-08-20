@@ -1,0 +1,27 @@
+{% extends 'master.html' %}
+{% load static %}
+
+{% if liste %}
+    {% block title %}
+        Detail salle
+    {% endblock %}
+
+    {% block content %}
+        <div class="container">
+            <div class='row'>
+                <div class='col-sm-12'>
+                    {% if liste %}
+                        <ul class="list-group">
+                            <li class="list-group-item"><strong>Numéro:</strong> {{ liste.numero_salle }}</li>
+                            <li class="list-group-item"><strong>Etage:</strong> {{ liste.etage }}</li>
+                        </ul>
+                    {% else %}
+                        <p>No salle to show.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+{% else %}
+    <p>No salle to show.</p>
+{% endif %}

@@ -1,0 +1,30 @@
+{% extends 'master.html' %}
+{% load static %}
+
+{% if liste %}
+    {% block title %}
+        Detail passation
+    {% endblock %}
+
+    {% block content %}
+        <div class="container">
+            <div class='row'>
+                <div class='col-sm-12'>
+                    {% if liste %}
+                        <ul class="list-group">
+                            <li class="list-group-item"><strong>Date:</strong> {{ liste.date_pass }}</li>
+                            <li class="list-group-item"><strong>Lieu:</strong> {{ liste.lieu_pass }}</li>
+                            <li class="list-group-item"><strong>Occasion:</strong> {{ liste.occasion_pass }}</li>
+                            <li class="list-group-item"><strong>Objectif:</strong> {{ liste.objectif_pos2 }}</li>
+                            <li class="list-group-item"><strong>Materiel concerné:</strong> {{ liste.materiel }}</li>
+                        </ul>
+                    {% else %}
+                        <p>No passation to show.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+{% else %}
+    <p>No passation to show.</p>
+{% endif %}
